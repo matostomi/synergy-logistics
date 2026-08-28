@@ -163,8 +163,19 @@ SIMPLE_JWT = {
 # ---------------------------------------------------------------------------
 CORS_ALLOWED_ORIGINS = os.environ.get(
     'CORS_ALLOWED_ORIGINS',
-    'http://localhost:3000,http://127.0.0.1:3000,http://localhost:5173'
+    'http://localhost:3000,http://127.0.0.1:3000,http://localhost:5173,'
+    'https://matostomi-synergy-logistics.vercel.app'
 ).split(',')
+# Also trust: any Vercel preview-deployment URL for this project (Vercel gives
+# each branch/PR its own subdomain), and any private-network IP on port 5173
+# (e.g. http://192.168.1.42:5173) so the app still works from other devices
+# on your local network, same as before.
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r'^https://matostomi-synergy-logistics.*\.vercel\.app$',
+    r'^http://192\.168\.\d{1,3}\.\d{1,3}:5173$',
+    r'^http://10\.\d{1,3}\.\d{1,3}\.\d{1,3}:5173$',
+    r'^http://172\.(1[6-9]|2\d|3[0-1])\.\d{1,3}\.\d{1,3}:5173$',
+]
 
 # ---------------------------------------------------------------------------
 # Email — used for automatic shipment-update notifications to customers.
