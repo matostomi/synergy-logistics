@@ -16,7 +16,7 @@ const TILES = [
   { key: 'awaiting_registration', label: 'Awaiting Registration', Icon: ClipboardList, source: 'shipments', query: 'awaiting_registration=true' },
   { key: 'active_operations', label: 'Active Operations', Icon: BarChart3, status: null, source: 'operations' },
   { key: 'air_shipments', label: 'Air Shipments', Icon: Plane, status: null, source: 'operations' },
-  { key: 'trucks_in_transit', label: 'Trucks in Transit', Icon: Truck, status: 'in_transit', source: 'shipments' },
+  { key: 'trucks_in_transit', label: 'Trucks in Transit', Icon: Truck, to: '/master-operations?transport_mode=road&status=in_progress', source: 'operations' },
   { key: 'at_customs', label: 'At Customs', status: 'at_customs', Icon: Building2, source: 'shipments' },
   { key: 'factory_deliveries_today', label: 'Factory Deliveries Today', Icon: Factory, status: null, source: 'operations' },
   { key: 'cancelled', label: 'Cancelled Orders', Icon: Ban, status: 'cancelled', source: 'shipments' },
