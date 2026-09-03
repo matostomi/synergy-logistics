@@ -1,4 +1,4 @@
-[
+ï»¿[
 {
   "model": "sessions.session",
   "pk": "0v8yc8x1zw7esnkvboyh2xzcbw5wvzud",
@@ -15877,7 +15877,7 @@
     "shipment": 1902,
     "status": "factory_unloading",
     "location": "MOJO",
-    "note": "Factory unloading done — currently waiting for empty container return.",
+    "note": "Factory unloading done Ã¹ currently waiting for empty container return.",
     "timestamp": "2026-08-31T06:54:51.505Z"
   }
 },
@@ -15888,7 +15888,7 @@
     "shipment": 1903,
     "status": "factory_unloading",
     "location": "MOJO",
-    "note": "Factory unloading done — currently waiting for empty container return.",
+    "note": "Factory unloading done Ã¹ currently waiting for empty container return.",
     "timestamp": "2026-08-31T06:54:51.664Z"
   }
 },
@@ -15899,7 +15899,7 @@
     "shipment": 1904,
     "status": "factory_unloading",
     "location": "MOJO",
-    "note": "Factory unloading done — currently waiting for empty container return.",
+    "note": "Factory unloading done Ã¹ currently waiting for empty container return.",
     "timestamp": "2026-08-31T06:54:51.819Z"
   }
 },
@@ -15910,7 +15910,7 @@
     "shipment": 1905,
     "status": "factory_unloading",
     "location": "MOJO",
-    "note": "Factory unloading done — currently waiting for empty container return.",
+    "note": "Factory unloading done Ã¹ currently waiting for empty container return.",
     "timestamp": "2026-08-31T06:54:51.960Z"
   }
 },
@@ -15921,7 +15921,7 @@
     "shipment": 1906,
     "status": "factory_unloading",
     "location": "MOJO",
-    "note": "Factory unloading done — currently waiting for empty container return.",
+    "note": "Factory unloading done Ã¹ currently waiting for empty container return.",
     "timestamp": "2026-08-31T06:54:52.144Z"
   }
 },
@@ -15932,7 +15932,7 @@
     "shipment": 1907,
     "status": "factory_unloading",
     "location": "MOJO",
-    "note": "Factory unloading done — currently waiting for empty container return.",
+    "note": "Factory unloading done Ã¹ currently waiting for empty container return.",
     "timestamp": "2026-08-31T06:54:52.283Z"
   }
 },
@@ -15943,7 +15943,7 @@
     "shipment": 1908,
     "status": "factory_unloading",
     "location": "MOJO",
-    "note": "Factory unloading done — currently waiting for empty container return.",
+    "note": "Factory unloading done Ã¹ currently waiting for empty container return.",
     "timestamp": "2026-08-31T06:54:52.437Z"
   }
 },
@@ -15954,7 +15954,7 @@
     "shipment": 1909,
     "status": "factory_unloading",
     "location": "MOJO",
-    "note": "Factory unloading done — currently waiting for empty container return.",
+    "note": "Factory unloading done Ã¹ currently waiting for empty container return.",
     "timestamp": "2026-08-31T06:54:52.582Z"
   }
 },
@@ -15965,7 +15965,7 @@
     "shipment": 1910,
     "status": "factory_unloading",
     "location": "MOJO",
-    "note": "Factory unloading done — currently waiting for empty container return.",
+    "note": "Factory unloading done Ã¹ currently waiting for empty container return.",
     "timestamp": "2026-08-31T06:54:52.726Z"
   }
 },
@@ -16108,7 +16108,7 @@
     "shipment": 1898,
     "status": "factory_unloading",
     "location": "JACROS",
-    "note": "Factory unloading done — currently waiting for empty container return.",
+    "note": "Factory unloading done Ã¹ currently waiting for empty container return.",
     "timestamp": "2026-08-31T09:55:27.164Z"
   }
 },
@@ -19391,7 +19391,7 @@
   "pk": 237,
   "fields": {
     "notif_type": "status_change",
-    "title": "EK — Completed",
+    "title": "EK Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 1840,
     "is_read": true,
@@ -19403,7 +19403,7 @@
   "pk": 238,
   "fields": {
     "notif_type": "status_change",
-    "title": "EK — Completed",
+    "title": "EK Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 1841,
     "is_read": true,
@@ -19415,7 +19415,7 @@
   "pk": 239,
   "fields": {
     "notif_type": "status_change",
-    "title": "EK — At Customs",
+    "title": "EK Ã¹ At Customs",
     "message": "Updated from Google Sheet",
     "shipment": 1844,
     "is_read": true,
@@ -19427,7 +19427,7 @@
   "pk": 240,
   "fields": {
     "notif_type": "status_change",
-    "title": "SINO — Completed",
+    "title": "SINO Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 1860,
     "is_read": true,
@@ -19439,7 +19439,7 @@
   "pk": 241,
   "fields": {
     "notif_type": "status_change",
-    "title": "SINO — Completed",
+    "title": "SINO Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 1861,
     "is_read": true,
@@ -19451,7 +19451,7 @@
   "pk": 242,
   "fields": {
     "notif_type": "status_change",
-    "title": "DESTA — At Customs",
+    "title": "DESTA Ã¹ At Customs",
     "message": "Updated from Google Sheet",
     "shipment": 1897,
     "is_read": true,
@@ -19463,7 +19463,7 @@
   "pk": 243,
   "fields": {
     "notif_type": "status_change",
-    "title": "WANG HAIFENG — At Customs",
+    "title": "WANG HAIFENG Ã¹ At Customs",
     "message": "Updated from Google Sheet",
     "shipment": 1898,
     "is_read": true,
@@ -19475,7 +19475,7 @@
   "pk": 244,
   "fields": {
     "notif_type": "status_change",
-    "title": "EK — Pending",
+    "title": "EK Ã¹ Pending",
     "message": "Updated from Google Sheet",
     "shipment": 1844,
     "is_read": true,
@@ -19487,8 +19487,8 @@
   "pk": 245,
   "fields": {
     "notif_type": "factory_unloading",
-    "title": "ANTENEH — Factory Unloading",
-    "message": "Factory unloading done — currently waiting for empty container return.",
+    "title": "ANTENEH Ã¹ Factory Unloading",
+    "message": "Factory unloading done Ã¹ currently waiting for empty container return.",
     "shipment": 1902,
     "is_read": true,
     "created_at": "2026-08-31T06:54:51.568Z"
@@ -19499,8 +19499,8 @@
   "pk": 246,
   "fields": {
     "notif_type": "factory_unloading",
-    "title": "ANTENEH — Factory Unloading",
-    "message": "Factory unloading done — currently waiting for empty container return.",
+    "title": "ANTENEH Ã¹ Factory Unloading",
+    "message": "Factory unloading done Ã¹ currently waiting for empty container return.",
     "shipment": 1903,
     "is_read": true,
     "created_at": "2026-08-31T06:54:51.704Z"
@@ -19511,8 +19511,8 @@
   "pk": 247,
   "fields": {
     "notif_type": "factory_unloading",
-    "title": "ANTENEH — Factory Unloading",
-    "message": "Factory unloading done — currently waiting for empty container return.",
+    "title": "ANTENEH Ã¹ Factory Unloading",
+    "message": "Factory unloading done Ã¹ currently waiting for empty container return.",
     "shipment": 1904,
     "is_read": true,
     "created_at": "2026-08-31T06:54:51.874Z"
@@ -19523,8 +19523,8 @@
   "pk": 248,
   "fields": {
     "notif_type": "factory_unloading",
-    "title": "ANTENEH — Factory Unloading",
-    "message": "Factory unloading done — currently waiting for empty container return.",
+    "title": "ANTENEH Ã¹ Factory Unloading",
+    "message": "Factory unloading done Ã¹ currently waiting for empty container return.",
     "shipment": 1905,
     "is_read": true,
     "created_at": "2026-08-31T06:54:52.027Z"
@@ -19535,8 +19535,8 @@
   "pk": 249,
   "fields": {
     "notif_type": "factory_unloading",
-    "title": "ANTENEH — Factory Unloading",
-    "message": "Factory unloading done — currently waiting for empty container return.",
+    "title": "ANTENEH Ã¹ Factory Unloading",
+    "message": "Factory unloading done Ã¹ currently waiting for empty container return.",
     "shipment": 1906,
     "is_read": true,
     "created_at": "2026-08-31T06:54:52.191Z"
@@ -19547,8 +19547,8 @@
   "pk": 250,
   "fields": {
     "notif_type": "factory_unloading",
-    "title": "ANTENEH — Factory Unloading",
-    "message": "Factory unloading done — currently waiting for empty container return.",
+    "title": "ANTENEH Ã¹ Factory Unloading",
+    "message": "Factory unloading done Ã¹ currently waiting for empty container return.",
     "shipment": 1907,
     "is_read": true,
     "created_at": "2026-08-31T06:54:52.325Z"
@@ -19559,8 +19559,8 @@
   "pk": 251,
   "fields": {
     "notif_type": "factory_unloading",
-    "title": "ANTENEH — Factory Unloading",
-    "message": "Factory unloading done — currently waiting for empty container return.",
+    "title": "ANTENEH Ã¹ Factory Unloading",
+    "message": "Factory unloading done Ã¹ currently waiting for empty container return.",
     "shipment": 1908,
     "is_read": true,
     "created_at": "2026-08-31T06:54:52.485Z"
@@ -19571,8 +19571,8 @@
   "pk": 252,
   "fields": {
     "notif_type": "factory_unloading",
-    "title": "ANTENEH — Factory Unloading",
-    "message": "Factory unloading done — currently waiting for empty container return.",
+    "title": "ANTENEH Ã¹ Factory Unloading",
+    "message": "Factory unloading done Ã¹ currently waiting for empty container return.",
     "shipment": 1909,
     "is_read": true,
     "created_at": "2026-08-31T06:54:52.633Z"
@@ -19583,8 +19583,8 @@
   "pk": 253,
   "fields": {
     "notif_type": "factory_unloading",
-    "title": "ANTENEH — Factory Unloading",
-    "message": "Factory unloading done — currently waiting for empty container return.",
+    "title": "ANTENEH Ã¹ Factory Unloading",
+    "message": "Factory unloading done Ã¹ currently waiting for empty container return.",
     "shipment": 1910,
     "is_read": true,
     "created_at": "2026-08-31T06:54:52.774Z"
@@ -19595,7 +19595,7 @@
   "pk": 254,
   "fields": {
     "notif_type": "status_change",
-    "title": "ANTENEH — Pending",
+    "title": "ANTENEH Ã¹ Pending",
     "message": "Updated from Google Sheet",
     "shipment": 1665,
     "is_read": true,
@@ -19607,7 +19607,7 @@
   "pk": 255,
   "fields": {
     "notif_type": "status_change",
-    "title": "DESTA — At Customs",
+    "title": "DESTA Ã¹ At Customs",
     "message": "Updated from Google Sheet",
     "shipment": 1920,
     "is_read": true,
@@ -19619,7 +19619,7 @@
   "pk": 256,
   "fields": {
     "notif_type": "status_change",
-    "title": "SINO — At Customs",
+    "title": "SINO Ã¹ At Customs",
     "message": "Updated from Google Sheet",
     "shipment": 1921,
     "is_read": true,
@@ -19631,7 +19631,7 @@
   "pk": 257,
   "fields": {
     "notif_type": "status_change",
-    "title": "ANTENEH — Completed",
+    "title": "ANTENEH Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 1903,
     "is_read": true,
@@ -19643,7 +19643,7 @@
   "pk": 258,
   "fields": {
     "notif_type": "status_change",
-    "title": "ANTENEH — Completed",
+    "title": "ANTENEH Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 1904,
     "is_read": true,
@@ -19655,7 +19655,7 @@
   "pk": 259,
   "fields": {
     "notif_type": "status_change",
-    "title": "ANTENEH — Completed",
+    "title": "ANTENEH Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 1906,
     "is_read": true,
@@ -19667,7 +19667,7 @@
   "pk": 260,
   "fields": {
     "notif_type": "status_change",
-    "title": "ANTENEH — Completed",
+    "title": "ANTENEH Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 1907,
     "is_read": true,
@@ -19679,7 +19679,7 @@
   "pk": 261,
   "fields": {
     "notif_type": "status_change",
-    "title": "ANTENEH — Completed",
+    "title": "ANTENEH Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 1909,
     "is_read": true,
@@ -19691,8 +19691,8 @@
   "pk": 262,
   "fields": {
     "notif_type": "factory_unloading",
-    "title": "WANG HAIFENG — Factory Unloading",
-    "message": "Factory unloading done — currently waiting for empty container return.",
+    "title": "WANG HAIFENG Ã¹ Factory Unloading",
+    "message": "Factory unloading done Ã¹ currently waiting for empty container return.",
     "shipment": 1898,
     "is_read": true,
     "created_at": "2026-08-31T09:55:27.212Z"
@@ -19703,7 +19703,7 @@
   "pk": 263,
   "fields": {
     "notif_type": "status_change",
-    "title": "ANTENEH — Completed",
+    "title": "ANTENEH Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 1902,
     "is_read": true,
@@ -19715,7 +19715,7 @@
   "pk": 264,
   "fields": {
     "notif_type": "status_change",
-    "title": "ANTENEH — Completed",
+    "title": "ANTENEH Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 1905,
     "is_read": true,
@@ -19727,7 +19727,7 @@
   "pk": 265,
   "fields": {
     "notif_type": "status_change",
-    "title": "ANTENEH — Completed",
+    "title": "ANTENEH Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 1908,
     "is_read": true,
@@ -19739,7 +19739,7 @@
   "pk": 266,
   "fields": {
     "notif_type": "status_change",
-    "title": "ANTENEH — Completed",
+    "title": "ANTENEH Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 1910,
     "is_read": true,
@@ -19751,7 +19751,7 @@
   "pk": 269,
   "fields": {
     "notif_type": "status_change",
-    "title": "SINO — Completed",
+    "title": "SINO Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2120,
     "is_read": true,
@@ -19763,7 +19763,7 @@
   "pk": 273,
   "fields": {
     "notif_type": "status_change",
-    "title": "OCEAN — Completed",
+    "title": "OCEAN Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2124,
     "is_read": true,
@@ -19775,7 +19775,7 @@
   "pk": 274,
   "fields": {
     "notif_type": "status_change",
-    "title": "OCEAN — Completed",
+    "title": "OCEAN Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2125,
     "is_read": true,
@@ -19787,7 +19787,7 @@
   "pk": 275,
   "fields": {
     "notif_type": "status_change",
-    "title": "FINOT — Completed",
+    "title": "FINOT Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2126,
     "is_read": true,
@@ -19799,7 +19799,7 @@
   "pk": 276,
   "fields": {
     "notif_type": "status_change",
-    "title": "PHOENIX — Completed",
+    "title": "PHOENIX Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2127,
     "is_read": true,
@@ -19811,7 +19811,7 @@
   "pk": 278,
   "fields": {
     "notif_type": "status_change",
-    "title": "IONIC — Completed",
+    "title": "IONIC Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2129,
     "is_read": true,
@@ -19823,7 +19823,7 @@
   "pk": 279,
   "fields": {
     "notif_type": "status_change",
-    "title": "ANTENEH — Completed",
+    "title": "ANTENEH Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2130,
     "is_read": true,
@@ -19835,7 +19835,7 @@
   "pk": 280,
   "fields": {
     "notif_type": "status_change",
-    "title": "ANTENEH — Completed",
+    "title": "ANTENEH Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2131,
     "is_read": true,
@@ -19847,7 +19847,7 @@
   "pk": 281,
   "fields": {
     "notif_type": "status_change",
-    "title": "ANTENEH — Completed",
+    "title": "ANTENEH Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2132,
     "is_read": true,
@@ -19859,7 +19859,7 @@
   "pk": 282,
   "fields": {
     "notif_type": "status_change",
-    "title": "ANTENEH — Completed",
+    "title": "ANTENEH Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2133,
     "is_read": true,
@@ -19871,7 +19871,7 @@
   "pk": 283,
   "fields": {
     "notif_type": "status_change",
-    "title": "ANTENEH — Completed",
+    "title": "ANTENEH Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2134,
     "is_read": true,
@@ -19883,7 +19883,7 @@
   "pk": 284,
   "fields": {
     "notif_type": "status_change",
-    "title": "ANTENEH — Completed",
+    "title": "ANTENEH Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2135,
     "is_read": true,
@@ -19895,7 +19895,7 @@
   "pk": 285,
   "fields": {
     "notif_type": "status_change",
-    "title": "ANTENEH — Completed",
+    "title": "ANTENEH Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2136,
     "is_read": true,
@@ -19907,7 +19907,7 @@
   "pk": 288,
   "fields": {
     "notif_type": "status_change",
-    "title": "TONGBO — Completed",
+    "title": "TONGBO Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2139,
     "is_read": true,
@@ -19919,7 +19919,7 @@
   "pk": 289,
   "fields": {
     "notif_type": "status_change",
-    "title": "TONGBO — Completed",
+    "title": "TONGBO Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2140,
     "is_read": true,
@@ -19931,7 +19931,7 @@
   "pk": 290,
   "fields": {
     "notif_type": "status_change",
-    "title": "HUAFEL — Completed",
+    "title": "HUAFEL Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2183,
     "is_read": true,
@@ -19943,7 +19943,7 @@
   "pk": 291,
   "fields": {
     "notif_type": "status_change",
-    "title": "GW — Completed",
+    "title": "GW Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2141,
     "is_read": true,
@@ -19955,7 +19955,7 @@
   "pk": 292,
   "fields": {
     "notif_type": "status_change",
-    "title": "SEALINE — Completed",
+    "title": "SEALINE Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2142,
     "is_read": true,
@@ -19967,7 +19967,7 @@
   "pk": 293,
   "fields": {
     "notif_type": "status_change",
-    "title": "PHOENIX — Completed",
+    "title": "PHOENIX Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2143,
     "is_read": true,
@@ -19979,7 +19979,7 @@
   "pk": 294,
   "fields": {
     "notif_type": "status_change",
-    "title": "PHOENIX — Completed",
+    "title": "PHOENIX Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2144,
     "is_read": true,
@@ -19991,7 +19991,7 @@
   "pk": 295,
   "fields": {
     "notif_type": "status_change",
-    "title": "DAYAN — Completed",
+    "title": "DAYAN Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2145,
     "is_read": true,
@@ -20003,7 +20003,7 @@
   "pk": 296,
   "fields": {
     "notif_type": "status_change",
-    "title": "DAYAN — Completed",
+    "title": "DAYAN Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2146,
     "is_read": true,
@@ -20015,7 +20015,7 @@
   "pk": 297,
   "fields": {
     "notif_type": "status_change",
-    "title": "PHOENIX — Completed",
+    "title": "PHOENIX Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2147,
     "is_read": true,
@@ -20027,7 +20027,7 @@
   "pk": 298,
   "fields": {
     "notif_type": "status_change",
-    "title": "PHOENIX — Completed",
+    "title": "PHOENIX Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2148,
     "is_read": true,
@@ -20039,7 +20039,7 @@
   "pk": 301,
   "fields": {
     "notif_type": "status_change",
-    "title": "PHOENIX — Completed",
+    "title": "PHOENIX Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2151,
     "is_read": true,
@@ -20051,7 +20051,7 @@
   "pk": 302,
   "fields": {
     "notif_type": "status_change",
-    "title": "SHUIXING — Completed",
+    "title": "SHUIXING Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2152,
     "is_read": true,
@@ -20063,7 +20063,7 @@
   "pk": 303,
   "fields": {
     "notif_type": "status_change",
-    "title": "SHUIXING — Completed",
+    "title": "SHUIXING Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2153,
     "is_read": true,
@@ -20075,7 +20075,7 @@
   "pk": 304,
   "fields": {
     "notif_type": "status_change",
-    "title": "SHUIXING — Completed",
+    "title": "SHUIXING Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2154,
     "is_read": true,
@@ -20087,7 +20087,7 @@
   "pk": 305,
   "fields": {
     "notif_type": "status_change",
-    "title": "ROS MEDICAL — Completed",
+    "title": "ROS MEDICAL Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2155,
     "is_read": true,
@@ -20099,7 +20099,7 @@
   "pk": 306,
   "fields": {
     "notif_type": "status_change",
-    "title": "SHUIXING — Completed",
+    "title": "SHUIXING Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2156,
     "is_read": true,
@@ -20111,7 +20111,7 @@
   "pk": 307,
   "fields": {
     "notif_type": "status_change",
-    "title": "SHUIXING — Completed",
+    "title": "SHUIXING Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2157,
     "is_read": true,
@@ -20123,7 +20123,7 @@
   "pk": 308,
   "fields": {
     "notif_type": "status_change",
-    "title": "ANTENEH — Completed",
+    "title": "ANTENEH Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2158,
     "is_read": true,
@@ -20135,7 +20135,7 @@
   "pk": 309,
   "fields": {
     "notif_type": "status_change",
-    "title": "ANTENEH — Completed",
+    "title": "ANTENEH Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2159,
     "is_read": true,
@@ -20147,7 +20147,7 @@
   "pk": 310,
   "fields": {
     "notif_type": "status_change",
-    "title": "ANTENEH — Completed",
+    "title": "ANTENEH Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2160,
     "is_read": true,
@@ -20159,7 +20159,7 @@
   "pk": 311,
   "fields": {
     "notif_type": "status_change",
-    "title": "ANTENEH — Completed",
+    "title": "ANTENEH Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2161,
     "is_read": true,
@@ -20171,7 +20171,7 @@
   "pk": 312,
   "fields": {
     "notif_type": "status_change",
-    "title": "ANTENEH — Completed",
+    "title": "ANTENEH Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2162,
     "is_read": true,
@@ -20183,7 +20183,7 @@
   "pk": 313,
   "fields": {
     "notif_type": "status_change",
-    "title": "ANTENEH — Completed",
+    "title": "ANTENEH Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2163,
     "is_read": true,
@@ -20195,7 +20195,7 @@
   "pk": 314,
   "fields": {
     "notif_type": "status_change",
-    "title": "ANTENEH — Completed",
+    "title": "ANTENEH Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2164,
     "is_read": true,
@@ -20207,7 +20207,7 @@
   "pk": 315,
   "fields": {
     "notif_type": "status_change",
-    "title": "ANTENEH — Completed",
+    "title": "ANTENEH Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2165,
     "is_read": true,
@@ -20219,7 +20219,7 @@
   "pk": 316,
   "fields": {
     "notif_type": "status_change",
-    "title": "ENEY — Completed",
+    "title": "ENEY Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2166,
     "is_read": true,
@@ -20231,7 +20231,7 @@
   "pk": 317,
   "fields": {
     "notif_type": "status_change",
-    "title": "SYNERGY — Completed",
+    "title": "SYNERGY Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2167,
     "is_read": true,
@@ -20243,7 +20243,7 @@
   "pk": 318,
   "fields": {
     "notif_type": "status_change",
-    "title": "EK — Completed",
+    "title": "EK Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2168,
     "is_read": true,
@@ -20255,7 +20255,7 @@
   "pk": 319,
   "fields": {
     "notif_type": "status_change",
-    "title": "DAYAN — Completed",
+    "title": "DAYAN Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2169,
     "is_read": true,
@@ -20267,7 +20267,7 @@
   "pk": 329,
   "fields": {
     "notif_type": "status_change",
-    "title": "HUAFEL — Completed",
+    "title": "HUAFEL Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2179,
     "is_read": true,
@@ -20279,7 +20279,7 @@
   "pk": 330,
   "fields": {
     "notif_type": "status_change",
-    "title": "HUAFEL — Completed",
+    "title": "HUAFEL Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2180,
     "is_read": true,
@@ -20291,7 +20291,7 @@
   "pk": 331,
   "fields": {
     "notif_type": "status_change",
-    "title": "HUAFEL — Completed",
+    "title": "HUAFEL Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2181,
     "is_read": true,
@@ -20303,7 +20303,7 @@
   "pk": 332,
   "fields": {
     "notif_type": "status_change",
-    "title": "HUAFEL — Completed",
+    "title": "HUAFEL Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2182,
     "is_read": true,
@@ -20315,7 +20315,7 @@
   "pk": 333,
   "fields": {
     "notif_type": "status_change",
-    "title": "OCEAN — Completed",
+    "title": "OCEAN Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2090,
     "is_read": true,
@@ -20327,7 +20327,7 @@
   "pk": 334,
   "fields": {
     "notif_type": "status_change",
-    "title": "OCEAN — Completed",
+    "title": "OCEAN Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2091,
     "is_read": true,
@@ -20339,7 +20339,7 @@
   "pk": 335,
   "fields": {
     "notif_type": "status_change",
-    "title": "KMY — Completed",
+    "title": "KMY Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2198,
     "is_read": false,
@@ -20351,7 +20351,7 @@
   "pk": 336,
   "fields": {
     "notif_type": "status_change",
-    "title": "SINO — Completed",
+    "title": "SINO Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 1914,
     "is_read": false,
@@ -20363,7 +20363,7 @@
   "pk": 337,
   "fields": {
     "notif_type": "status_change",
-    "title": "EK — Completed",
+    "title": "EK Ã¹ Completed",
     "message": "Updated from Google Sheet",
     "shipment": 2251,
     "is_read": false,
