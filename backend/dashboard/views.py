@@ -46,6 +46,23 @@ class DashboardSummaryView(APIView):
             Shipment.objects.values_list('status').annotate(count=Count('id')).order_by()
         )
 
+        # Shipments still waiting to be registered, i.e. no operation number
+        # issued yet. Cancelled orders are excluded: they are never going to
+        # be registered, and they get their own card.
+        #
+        # Counted by unique BILL, not by row: the sheet has one row per
+        # container, so a single unregistered bill with 20 containers must
+        # count as 1, not 20. Rows with no bill_number yet can't be grouped
+        # together (they're not known to be the same bill), so those are
+        # counted individually.
+        awaiting_qs = Shipment.objects.filter(
+            operation_number__contains=AWAITING_REGISTRATION_MARKER,
+        ).exclude(status=Shipment.Status.CANCELLED)
+        awaiting_registration = (
+            awaiting_qs.exclude(bill_number='').values('bill_number').distinct().count()
+            + awaiting_qs.filter(bill_number='').count()
+        )
+
         shipment_counts = {
             'total': total,
             'completed': by_status.get(Shipment.Status.DELIVERED, 0),
@@ -57,12 +74,7 @@ class DashboardSummaryView(APIView):
             'empty_container_returned': by_status.get(Shipment.Status.EMPTY_CONTAINER_RETURNED, 0),
             'pending': by_status.get(Shipment.Status.PENDING, 0),
             'cancelled': by_status.get(Shipment.Status.CANCELLED, 0),
-            # Shipments still waiting to be registered, i.e. no operation number
-            # issued yet. Cancelled orders are excluded: they are never going to
-            # be registered, and they get their own card.
-            'awaiting_registration': Shipment.objects.filter(
-                operation_number__contains=AWAITING_REGISTRATION_MARKER,
-            ).exclude(status=Shipment.Status.CANCELLED).count(),
+            'awaiting_registration': awaiting_registration,
         }
 
         trends = {
