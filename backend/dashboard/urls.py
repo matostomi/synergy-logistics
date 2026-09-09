@@ -2,7 +2,7 @@ from django.urls import path
 from rest_framework.routers import DefaultRouter
 from .views import (
     DashboardSummaryView, RecentActivityView, DailyReportView, CalendarView,
-    PublicStatsView, AnalyticsView,
+    PublicStatsView, AnalyticsView, GroupedShipmentsView,
 )
 from .backup_views import BackupDownloadView, BackupRestoreView
 from .notification_views import NotificationViewSet
@@ -19,6 +19,7 @@ router.register('border-crossings', BorderCrossingViewSet, basename='border-cros
 urlpatterns = [
     path('public-stats/', PublicStatsView.as_view(), name='public-stats'),
     path('summary/', DashboardSummaryView.as_view(), name='dashboard-summary'),
+    path('grouped-shipments/', GroupedShipmentsView.as_view(), name='grouped-shipments'),
     path('analytics/', AnalyticsView.as_view(), name='dashboard-analytics'),
     path('recent-activity/', RecentActivityView.as_view(), name='dashboard-recent-activity'),
     path('daily-report/', DailyReportView.as_view(), name='dashboard-daily-report'),
