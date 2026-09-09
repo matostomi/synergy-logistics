@@ -11,7 +11,7 @@ import NotificationBell from './components/NotificationBell'
 import ToastNotifications from './components/ToastNotifications'
 import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
-import Shipments from './pages/Shipments'
+import GroupedShipmentsView from './components/GroupedShipmentsView'
 import ShipmentDetail from './pages/ShipmentDetail'
 import Drivers from './pages/Drivers'
 import Vehicles from './pages/Vehicles'
@@ -31,21 +31,13 @@ function Layout({ children }) {
     <div className="app-shell">
       <Sidebar />
       <div className="content-area">
-     <div className="top-bar">
-
-    <SearchBar />
-
-    <div className="top-actions">
-
-        <NotificationBell />
-
-        <div className="user-avatar">
-            A
+        <div className="top-bar">
+          <SearchBar />
+          <div className="top-actions">
+            <NotificationBell />
+            <div className="user-avatar">A</div>
+          </div>
         </div>
-
-    </div>
-
-</div>
         <main className="main">{children}</main>
       </div>
     </div>
@@ -65,33 +57,33 @@ function withLayout(Component) {
 export default function App() {
   return (
     <AuthProvider>
-     <ThemeProvider>
-      <NotificationProvider>
-        <ToastNotifications />
-        <StatusColorProvider>
-          <AutoSyncProvider>
-            <Routes>
-              <Route path="/login" element={<Login />} />
-              <Route path="/track/:trackingNumber" element={<PublicTrack />} />
-              <Route path="/" element={withLayout(Dashboard)} />
-              <Route path="/shipments" element={withLayout(Shipments)} />
-              <Route path="/shipments/:id" element={withLayout(ShipmentDetail)} />
-              <Route path="/drivers" element={withLayout(Drivers)} />
-              <Route path="/vehicles" element={withLayout(Vehicles)} />
-              <Route path="/customers" element={withLayout(Customers)} />
-              <Route path="/reports" element={withLayout(Reports)} />
-              <Route path="/settings" element={withLayout(Settings)} />
-              <Route path="/about" element={withLayout(About)} />
-              <Route path="/notifications" element={withLayout(Notifications)} />
-              <Route path="/tasks" element={withLayout(TasksCalendar)} />
-              <Route path="/operations" element={withLayout(OperationsCalendar)} />
-              <Route path="/master-operations" element={withLayout(MasterOperations)} />
-              <Route path="/services-info" element={withLayout(Services)} />
-            </Routes>
-          </AutoSyncProvider>
-        </StatusColorProvider>
-      </NotificationProvider>
-     </ThemeProvider>
+      <ThemeProvider>
+        <NotificationProvider>
+          <ToastNotifications />
+          <StatusColorProvider>
+            <AutoSyncProvider>
+              <Routes>
+                <Route path="/login" element={<Login />} />
+                <Route path="/track/:trackingNumber" element={<PublicTrack />} />
+                <Route path="/" element={withLayout(Dashboard)} />
+                <Route path="/shipments" element={withLayout(GroupedShipmentsView)} />
+                <Route path="/shipments/:id" element={withLayout(ShipmentDetail)} />
+                <Route path="/drivers" element={withLayout(Drivers)} />
+                <Route path="/vehicles" element={withLayout(Vehicles)} />
+                <Route path="/customers" element={withLayout(Customers)} />
+                <Route path="/reports" element={withLayout(Reports)} />
+                <Route path="/settings" element={withLayout(Settings)} />
+                <Route path="/about" element={withLayout(About)} />
+                <Route path="/notifications" element={withLayout(Notifications)} />
+                <Route path="/tasks" element={withLayout(TasksCalendar)} />
+                <Route path="/operations" element={withLayout(OperationsCalendar)} />
+                <Route path="/master-operations" element={withLayout(MasterOperations)} />
+                <Route path="/services-info" element={withLayout(Services)} />
+              </Routes>
+            </AutoSyncProvider>
+          </StatusColorProvider>
+        </NotificationProvider>
+      </ThemeProvider>
     </AuthProvider>
   )
 }
