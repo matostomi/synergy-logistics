@@ -1,5 +1,5 @@
 import re
-from collections import OrderedDict
+from collections import OrderedDict, Counter
 
 from django.db.models import Count, Sum
 from django.db.models.functions import TruncMonth
@@ -438,8 +438,9 @@ class DashboardGroupedView(APIView):
                 label = raw_key or 'No Operation Number'
 
             bucket = buckets.setdefault(key, {
-                'label': label, 'customer_name': cust_name, 'shipments': [],
+                'label': label, 'customer_name': cust_name, 'shipments': [], 'sizes': Counter(),
             })
+            bucket['sizes'][_container_size(s.container_count)] += 1
             bucket['shipments'].append({
                 'id': s.id,
                 'tracking_number': s.tracking_number,
@@ -453,11 +454,21 @@ class DashboardGroupedView(APIView):
                 'estimated_delivery': s.estimated_delivery,
             })
 
+        def size_label(sizes, total):
+            # All containers the same size: "20 x 20FT". Mixed sizes: spell
+            # out each size's share, e.g. "15 x 20FT, 5 x 40FT".
+            if len(sizes) == 1:
+                only_size = next(iter(sizes))
+                return f'{total} x {only_size}'
+            parts = [f'{count} x {size}' for size, count in sizes.most_common()]
+            return ', '.join(parts)
+
         items = [
             {
                 'label': b['label'],
                 'customer_name': b['customer_name'],
                 'container_count': len(b['shipments']),
+                'size_label': size_label(b['sizes'], len(b['shipments'])),
                 'shipments': b['shipments'],
             }
             for b in buckets.values()
