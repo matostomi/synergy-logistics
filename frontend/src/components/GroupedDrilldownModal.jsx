@@ -18,14 +18,15 @@ function BillItem({ item }) {
         <span style={{ color: '#666' }}>—</span>
         <strong>{item.label}</strong>
         <span style={{ color: '#888' }}>
-          — {item.container_count} {item.container_count === 1 ? 'container' : 'containers'}
+          — {item.size_label || `${item.container_count} ${item.container_count === 1 ? 'container' : 'containers'}`}
         </span>
       </div>
       {open && (
         <div style={{ marginLeft: 20, borderLeft: '1px solid #333', paddingLeft: 12, marginBottom: 4 }}>
-          {item.shipments.map((s) => (
+          {item.shipments.map((s, i) => (
             <div key={s.id} style={{ fontSize: 12.5, padding: '3px 0', color: '#ccc' }}>
-              {s.container_number || s.tracking_number}
+              Container {i + 1}
+              {s.container_number ? ` (${s.container_number})` : ''}
               {s.status_display ? ` — ${s.status_display}` : ''}
               {s.destination_address ? ` — ${s.destination_address}` : ''}
             </div>
