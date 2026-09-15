@@ -2,34 +2,71 @@ import { useEffect, useState } from 'react'
 import { X, ChevronDown, ChevronRight } from 'lucide-react'
 import { dashboardService } from '../services/api'
 
-function BillItem({ item }) {
+function BillRow({ bill }) {
   const [open, setOpen] = useState(false)
   return (
-    <div style={{ marginBottom: 4, borderBottom: '1px solid #2a2a2a', paddingBottom: 6 }}>
-      <div
+    <div style={{ marginLeft: 18, marginBottom: 2 }}>
+      <button
+        type="button"
         onClick={() => setOpen((o) => !o)}
         style={{
           display: 'flex', alignItems: 'center', gap: 6, cursor: 'pointer',
-          padding: '6px 0', fontSize: 13.5,
+          padding: '5px 0', fontSize: 13, background: 'none', border: 'none',
+          color: 'inherit', font: 'inherit', width: '100%', textAlign: 'left',
         }}
       >
         {open ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
-        <strong>{item.customer_name}</strong>
-        <span style={{ color: '#666' }}>—</span>
-        <strong>{item.label}</strong>
-        <span style={{ color: '#888' }}>
-          — {item.size_label || `${item.container_count} ${item.container_count === 1 ? 'container' : 'containers'}`}
-        </span>
-      </div>
+        <strong>{bill.label}</strong>
+        <span style={{ color: '#888' }}>— {bill.size_label}</span>
+      </button>
       {open && (
         <div style={{ marginLeft: 20, borderLeft: '1px solid #333', paddingLeft: 12, marginBottom: 4 }}>
-          {item.shipments.map((s, i) => (
-            <div key={s.id} style={{ fontSize: 12.5, padding: '3px 0', color: '#ccc' }}>
-              Container {i + 1}
-              {s.container_number ? ` (${s.container_number})` : ''}
-              {s.status_display ? ` — ${s.status_display}` : ''}
-              {s.destination_address ? ` — ${s.destination_address}` : ''}
+          {bill.shipments.map((s, i) => (
+            <div key={s.id} style={{ fontSize: 12.5, padding: '4px 0', color: '#ccc' }}>
+              <div>
+                <strong>Container {i + 1}</strong>
+                {s.container_number ? ` — ${s.container_number}` : ''}
+                {s.size ? ` (${s.size})` : ''}
+              </div>
+              <div style={{ color: '#999', marginLeft: 2 }}>
+                {s.status_display}
+                {s.operation_number ? ` · Op ${s.operation_number}` : ''}
+                {s.destination_address ? ` · ${s.destination_address}` : ''}
+              </div>
+              {s.remark && (
+                <div style={{ color: '#8a8', marginLeft: 2, fontStyle: 'italic' }}>{s.remark}</div>
+              )}
             </div>
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
+
+function CustomerGroup({ group }) {
+  const [open, setOpen] = useState(false)
+  return (
+    <div style={{ marginBottom: 8, borderBottom: '1px solid #2a2a2a', paddingBottom: 8 }}>
+      <button
+        type="button"
+        onClick={() => setOpen((o) => !o)}
+        style={{
+          display: 'flex', alignItems: 'center', gap: 6, cursor: 'pointer', fontWeight: 600,
+          fontSize: 14, background: 'none', border: 'none', color: '#fff', font: 'inherit',
+          width: '100%', textAlign: 'left', padding: 0,
+        }}
+      >
+        {open ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
+        {group.customer_name}
+        <span style={{ color: '#888', fontWeight: 400 }}>
+          — {group.bill_count} {group.bill_count === 1 ? 'bill' : 'bills'}, {group.total_containers} total
+        </span>
+      </button>
+      {open && (
+        <div style={{ marginTop: 6 }}>
+          {group.bills.map((bill) => (
+            <BillRow key={bill.label} bill={bill} />
           ))}
         </div>
       )}
@@ -77,11 +114,11 @@ export default function GroupedDrilldownModal({ category, title, onClose }) {
 
         {error && <div style={{ color: '#f66' }}>{error}</div>}
         {!data && !error && <div style={{ color: '#888' }}>Loading…</div>}
-        {data && data.items.length === 0 && (
+        {data && data.groups.length === 0 && (
           <div style={{ color: '#888' }}>Nothing here right now.</div>
         )}
-        {data && data.items.map((item) => (
-          <BillItem key={`${item.customer_name}-${item.label}`} item={item} />
+        {data && data.groups.map((group) => (
+          <CustomerGroup key={group.customer_name} group={group} />
         ))}
       </div>
     </div>
