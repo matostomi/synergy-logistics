@@ -26,7 +26,7 @@ class PublicStatsView(APIView):
     def get(self, request):
         return Response({
             'total_shipments': Shipment.objects.count(),
-            'completed': Shipment.objects.filter(status=Shipment.Status.DELIVERED).count(),
+            'completed': Shipment.objects.filter(status=Shipment.Status.OPERATION_FULLY_COMPLETED).count(),
             'in_transit': Shipment.objects.filter(status=Shipment.Status.IN_TRANSIT).count(),
             'total_customers': Customer.objects.filter(is_active=True).count(),
         })
