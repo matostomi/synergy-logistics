@@ -20,7 +20,7 @@ class Shipment(models.Model):
         WAITING_CARGO_RELEASE = 'waiting_cargo_release', 'Waiting Cargo Release'
         FACTORY_UNLOADING = 'factory_unloading', 'Factory Unloading'
         EMPTY_CONTAINER_RETURNED = 'empty_container_returned', 'Empty Container Returned'
-        OPERATION_FULLY_COMPLETED = 'OPERATION_FULLY_COMPLETED', 'Completed'
+        OPERATION_FULLY_COMPLETED = 'operation_fully_completed', 'Completed'
         CANCELLED = 'cancelled', 'Cancelled'
 
     class Priority(models.TextChoices):
