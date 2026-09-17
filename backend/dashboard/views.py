@@ -65,7 +65,7 @@ class DashboardSummaryView(APIView):
 
         shipment_counts = {
             'total': total,
-            'completed': by_status.get(Shipment.Status.DELIVERED, 0),
+            'completed': by_status.get(Shipment.Status.operation_fully_completed, 0),
             'in_transit': by_status.get(Shipment.Status.IN_TRANSIT, 0),
             'at_customs': by_status.get(Shipment.Status.AT_CUSTOMS, 0),
             'technical_issues': by_status.get(Shipment.Status.TECHNICAL_ISSUES, 0),
