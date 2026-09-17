@@ -1676,3 +1676,124 @@ tbody tr {
 .toast-icon svg {
   flex-shrink: 0;
 }
+/* ==========================================================================
+   GROUPED DRILLDOWN PAGE — append to index.css (or its own imported file).
+   Styles GroupedDrilldownPage.jsx, the full-page replacement for the modal.
+   Reuses existing tokens (--panel, --line, --text-dim, --signal, etc.) —
+   no new colors introduced.
+   ========================================================================== */
+
+.drilldown-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 13px;
+  margin-bottom: 20px;
+  transition: color var(--transition-base, 200ms ease);
+}
+.drilldown-back:hover { color: var(--signal); }
+
+.drilldown-search {
+  width: 100%;
+  max-width: 320px;
+  padding: 9px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 13px;
+  margin: 4px 0 24px;
+}
+.drilldown-search:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 2px;
+}
+
+.drilldown-customer {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.drilldown-customer-header,
+.drilldown-bill-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: none;
+  border: none;
+  color: var(--paper);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background var(--transition-base, 200ms ease);
+}
+
+.drilldown-customer-header {
+  padding: 14px 18px;
+  font-size: 14px;
+}
+.drilldown-customer-header:hover { background: rgba(255, 122, 48, 0.06); }
+
+.drilldown-row-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.drilldown-customer-meta {
+  color: var(--text-dim);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.drilldown-bills { border-top: 1px solid var(--line); }
+
+.drilldown-bill { border-bottom: 1px solid var(--line); }
+.drilldown-bill:last-child { border-bottom: none; }
+
+.drilldown-bill-header {
+  padding: 10px 18px 10px 34px;
+  font-size: 13px;
+}
+.drilldown-bill-header:hover { background: rgba(255, 122, 48, 0.04); }
+
+.drilldown-containers { padding: 4px 18px 14px 46px; }
+
+.drilldown-container-row {
+  padding: 8px 0;
+  border-bottom: 1px dashed var(--line);
+  font-size: 12.5px;
+}
+.drilldown-container-row:last-child { border-bottom: none; }
+
+.drilldown-container-meta {
+  color: var(--text-dim);
+  margin-top: 3px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.drilldown-remark {
+  color: var(--ok);
+  font-style: italic;
+  font-size: 12px;
+  margin-top: 3px;
+}
+
+.drilldown-loading,
+.drilldown-error,
+.drilldown-empty {
+  padding: 48px 0;
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 14px;
+}
+.drilldown-error { color: var(--danger); }

@@ -1,3 +1,4 @@
+import GroupedDrilldownPage from './pages/GroupedDrilldownPage'
 import { ThemeProvider } from './services/ThemeContext'
 import { Routes, Route } from 'react-router-dom'
 import { AuthProvider } from './services/AuthContext'
@@ -87,6 +88,7 @@ export default function App() {
               <Route path="/operations" element={withLayout(OperationsCalendar)} />
               <Route path="/master-operations" element={withLayout(MasterOperations)} />
               <Route path="/services-info" element={withLayout(Services)} />
+              <Route path="/dashboard/details/:category" element={withLayout(GroupedDrilldownPage)} />
             </Routes>
           </AutoSyncProvider>
         </StatusColorProvider>

@@ -1,5 +1,5 @@
 import re
-from collections import OrderedDict
+from collections import OrderedDict, Counter
 
 from django.db.models import Count, Sum
 from django.db.models.functions import TruncMonth
@@ -419,14 +419,16 @@ class DashboardGroupedView(APIView):
             return Response({'detail': 'Unknown category.'}, status=400)
 
         qs = qs.order_by(
-            'bill_number' if group_by == 'bill' else 'operation_number',
             'customer__company_name',
+            'bill_number' if group_by == 'bill' else 'operation_number',
             'id',
         )
 
-        buckets = OrderedDict()
+        # customer_name -> { bill_key -> {label, shipments, sizes} }
+        customers = OrderedDict()
         for s in qs:
             cust_name = s.customer.company_name if s.customer_id else 'Unassigned'
+            bills = customers.setdefault(cust_name, OrderedDict())
 
             if group_by == 'bill':
                 raw_key = s.bill_number
@@ -437,36 +439,54 @@ class DashboardGroupedView(APIView):
                 key = raw_key or f'__no_op_{s.id}'
                 label = raw_key or 'No Operation Number'
 
-            bucket = buckets.setdefault(key, {
-                'label': label, 'customer_name': cust_name, 'shipments': [],
-            })
+            bucket = bills.setdefault(key, {'label': label, 'shipments': [], 'sizes': Counter()})
+            bucket['sizes'][_container_size(s.container_count)] += 1
             bucket['shipments'].append({
                 'id': s.id,
                 'tracking_number': s.tracking_number,
                 'container_number': s.container_number,
                 'container_count': s.container_count,
+                'size': _container_size(s.container_count),
                 'status': s.status,
                 'status_display': s.get_status_display(),
                 'operation_number': s.operation_number,
                 'bill_number': s.bill_number,
                 'destination_address': s.destination_address,
                 'estimated_delivery': s.estimated_delivery,
+                'remark': s.remark,
             })
 
-        items = [
-            {
-                'label': b['label'],
-                'customer_name': b['customer_name'],
-                'container_count': len(b['shipments']),
-                'shipments': b['shipments'],
-            }
-            for b in buckets.values()
-        ]
+        def size_label(sizes, total):
+            # All containers the same size: "20 x 20FT". Mixed sizes: spell
+            # out each size's share, e.g. "15 x 20FT, 5 x 40FT".
+            if len(sizes) == 1:
+                only_size = next(iter(sizes))
+                return f'{total} x {only_size}'
+            parts = [f'{count} x {size}' for size, count in sizes.most_common()]
+            return ', '.join(parts)
+
+        groups = []
+        for cust_name, bills in customers.items():
+            bill_list = [
+                {
+                    'label': b['label'],
+                    'container_count': len(b['shipments']),
+                    'size_label': size_label(b['sizes'], len(b['shipments'])),
+                    'shipments': b['shipments'],
+                }
+                for b in bills.values()
+            ]
+            groups.append({
+                'customer_name': cust_name,
+                'bill_count': len(bill_list),
+                'total_containers': sum(b['container_count'] for b in bill_list),
+                'bills': bill_list,
+            })
 
         return Response({
             'category': category,
             'group_label': 'Operation' if group_by == 'operation' else 'Bill',
-            'items': items,
+            'groups': groups,
         })
 
 
