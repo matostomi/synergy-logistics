@@ -184,8 +184,10 @@ export default function Shipments() {
           <tr>
             <th>Customer</th>
             <th>Operation #</th>
+            <th>Bill No</th>
             <th>Decl #</th>
             <th>Container #</th>
+            <th>Size</th>
             <th>Destination</th>
             <th>Status</th>
           </tr>
@@ -202,15 +204,17 @@ export default function Shipments() {
                 <div style={{ fontSize: 11, color: 'var(--text-dim)' }}>{s.tracking_number}</div>
               </td>
               <td>{s.operation_number || '—'}</td>
+              <td>{s.bill_number || '—'}</td>
               <td>{s.declaration_number || '—'}</td>
               <td>{s.container_number || '—'}</td>
+              <td>{s.container_count || '—'}</td>
               <td>{s.destination_address || '—'}</td>
               <td><StatusPill status={s.status} /></td>
             </tr>
           ))}
           {shipments.length === 0 && !error && (
             <tr>
-              <td colSpan={6} style={{ color: 'var(--text-dim)' }}>No shipments found.</td>
+              <td colSpan={8} style={{ color: 'var(--text-dim)' }}>No shipments found.</td>
             </tr>
           )}
         </tbody>
