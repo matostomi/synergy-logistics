@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate, useSearchParams, Link } from 'react-router-dom'
+import { ChevronDown, ChevronRight } from 'lucide-react'
 import { shipmentsService, customersService, driversService } from '../services/api'
 import StatusPill from '../components/StatusPill'
 
@@ -33,11 +34,59 @@ const selectStyle = {
   border: '1px solid var(--line)', borderRadius: 6, padding: '8px 10px', fontSize: 13,
 }
 
+// Classify a free-text container_count value like '1X40', '2x20FT' into a size bucket.
+function containerSize(raw) {
+  if (!raw) return 'Unspecified'
+  const text = raw.toUpperCase()
+  if (text.includes('40')) return '40FT'
+  if (text.includes('20')) return '20FT'
+  return 'Other'
+}
+
+// "20 x 20FT" when uniform, "15 x 20FT, 5 x 40FT" when the bill has mixed sizes.
+function sizeLabel(sizeCounts, total) {
+  const entries = Object.entries(sizeCounts).sort((a, b) => b[1] - a[1])
+  if (entries.length === 1) {
+    return `${total} x ${entries[0][0]}`
+  }
+  return entries.map(([size, count]) => `${count} x ${size}`).join(', ')
+}
+
+// Group shipment rows into bills: prefer bill_number, fall back to
+// operation_number + declaration_number when the bill hasn't been assigned
+// yet (e.g. shipments still Awaiting Registration).
+function groupByBill(shipments) {
+  const map = new Map()
+  for (const s of shipments) {
+    const key = s.bill_number || `no-bill:${s.operation_number || ''}|${s.declaration_number || ''}|${s.customer_name || ''}`
+    if (!map.has(key)) {
+      map.set(key, {
+        key,
+        bill_number: s.bill_number,
+        operation_number: s.operation_number,
+        declaration_number: s.declaration_number,
+        customer_name: s.customer_name,
+        destination_address: s.destination_address,
+        items: [],
+        sizeCounts: {},
+        statuses: new Set(),
+      })
+    }
+    const g = map.get(key)
+    g.items.push(s)
+    const size = containerSize(s.container_count)
+    g.sizeCounts[size] = (g.sizeCounts[size] || 0) + 1
+    g.statuses.add(s.status)
+  }
+  return Array.from(map.values())
+}
+
 export default function Shipments() {
   const [shipments, setShipments] = useState([])
   const [error, setError] = useState('')
   const [customers, setCustomers] = useState([])
   const [drivers, setDrivers] = useState([])
+  const [openBills, setOpenBills] = useState(() => new Set())
   const navigate = useNavigate()
   const [searchParams, setSearchParams] = useSearchParams()
 
@@ -65,6 +114,17 @@ export default function Shipments() {
       .then(({ data }) => setShipments(data.results ?? data))
       .catch(() => setError('Could not load shipments.'))
   }, [active])
+
+  const bills = useMemo(() => groupByBill(shipments), [shipments])
+
+  const toggleBill = (key) => {
+    setOpenBills((prev) => {
+      const next = new Set(prev)
+      if (next.has(key)) next.delete(key)
+      else next.add(key)
+      return next
+    })
+  }
 
   const applyFilters = (e) => {
     e.preventDefault()
@@ -182,37 +242,64 @@ export default function Shipments() {
       <table>
         <thead>
           <tr>
+            <th style={{ width: 24 }}></th>
             <th>Customer</th>
             <th>Operation #</th>
             <th>Bill No</th>
             <th>Decl #</th>
-            <th>Container #</th>
             <th>Size</th>
             <th>Destination</th>
             <th>Status</th>
           </tr>
         </thead>
         <tbody>
-          {shipments.map((s) => (
-            <tr
-              key={s.id}
-              onClick={() => navigate(`/shipments/${s.id}`)}
-              style={{ cursor: 'pointer' }}
-            >
-              <td>
-                <div style={{ fontWeight: 600, fontSize: 15 }}>{s.customer_name}</div>
-                <div style={{ fontSize: 11, color: 'var(--text-dim)' }}>{s.tracking_number}</div>
-              </td>
-              <td>{s.operation_number || '—'}</td>
-              <td>{s.bill_number || '—'}</td>
-              <td>{s.declaration_number || '—'}</td>
-              <td>{s.container_number || '—'}</td>
-              <td>{s.container_count || '—'}</td>
-              <td>{s.destination_address || '—'}</td>
-              <td><StatusPill status={s.status} /></td>
-            </tr>
-          ))}
-          {shipments.length === 0 && !error && (
+          {bills.map((bill) => {
+            const isOpen = openBills.has(bill.key)
+            const statusArray = Array.from(bill.statuses)
+            return (
+              <>
+                <tr
+                  key={bill.key}
+                  onClick={() => toggleBill(bill.key)}
+                  style={{ cursor: 'pointer' }}
+                >
+                  <td>{isOpen ? <ChevronDown size={16} /> : <ChevronRight size={16} />}</td>
+                  <td>
+                    <div style={{ fontWeight: 600, fontSize: 15 }}>{bill.customer_name || '—'}</div>
+                  </td>
+                  <td>{bill.operation_number || '—'}</td>
+                  <td>{bill.bill_number || '—'}</td>
+                  <td>{bill.declaration_number || '—'}</td>
+                  <td>{sizeLabel(bill.sizeCounts, bill.items.length)}</td>
+                  <td>{bill.destination_address || '—'}</td>
+                  <td>
+                    {statusArray.length === 1
+                      ? <StatusPill status={statusArray[0]} />
+                      : <span style={{ fontSize: 12, color: 'var(--text-dim)' }}>Mixed ({statusArray.length})</span>}
+                  </td>
+                </tr>
+                {isOpen && bill.items.map((s, i) => (
+                  <tr
+                    key={s.id}
+                    onClick={() => navigate(`/shipments/${s.id}`)}
+                    style={{ cursor: 'pointer', background: 'rgba(255,255,255,0.02)' }}
+                  >
+                    <td></td>
+                    <td colSpan={2} style={{ paddingLeft: 28, fontSize: 13, color: 'var(--text-dim)' }}>
+                      Container {i + 1}{s.container_number ? ` — ${s.container_number}` : ''}
+                    </td>
+                    <td colSpan={2} style={{ fontSize: 13, color: 'var(--text-dim)' }}>
+                      {containerSize(s.container_count)}
+                    </td>
+                    <td style={{ fontSize: 13, color: 'var(--text-dim)' }}>{s.container_count || '—'}</td>
+                    <td style={{ fontSize: 13, color: 'var(--text-dim)' }}>{s.destination_address || '—'}</td>
+                    <td><StatusPill status={s.status} /></td>
+                  </tr>
+                ))}
+              </>
+            )
+          })}
+          {bills.length === 0 && !error && (
             <tr>
               <td colSpan={8} style={{ color: 'var(--text-dim)' }}>No shipments found.</td>
             </tr>
