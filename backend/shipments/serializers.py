@@ -10,7 +10,7 @@ PROGRESS_STAGES = [
     Shipment.Status.WAITING_CARGO_RELEASE,
     Shipment.Status.FACTORY_UNLOADING,
     Shipment.Status.EMPTY_CONTAINER_RETURNED,
-    Shipment.Status.DELIVERED,
+    Shipment.Status.operation_fully_completed,
 ]
 
 
