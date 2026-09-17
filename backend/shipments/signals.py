@@ -11,7 +11,7 @@ STATUS_MESSAGES = {
     Shipment.Status.WAITING_CARGO_RELEASE: 'is waiting on cargo release',
     Shipment.Status.FACTORY_UNLOADING: 'is being unloaded at the factory',
     Shipment.Status.EMPTY_CONTAINER_RETURNED: 'had its empty container returned',
-    Shipment.Status.DELIVERED: 'was completed',
+    Shipment.Status.operation_fully_completed: 'was completed',
     Shipment.Status.TECHNICAL_ISSUES: 'reported a technical issue / delay',
     Shipment.Status.CANCELLED: 'was cancelled',
     Shipment.Status.PENDING: 'is pending',
