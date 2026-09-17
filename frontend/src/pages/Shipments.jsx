@@ -12,7 +12,7 @@ const STATUS_CHOICES = [
   ['waiting_cargo_release', 'Waiting Cargo Release'],
   ['factory_unloading', 'Factory Unloading'],
   ['empty_container_returned', 'Empty Container Returned'],
-  ['operation fully completed', 'Completed'],
+  ['operation_fully_completed', 'Completed'],
   ['cancelled', 'Cancelled'],
 ]
 
