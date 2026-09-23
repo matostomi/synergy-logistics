@@ -13,11 +13,11 @@ google-auth-oauthlib==1.4.0
 gspread==6.1.2
 gunicorn==22.0.0
 idna==3.19
-numpy==2.5.2
+numpy>=2.0
 oauthlib==3.3.1
 openpyxl==3.1.2
 packaging==26.3
-pandas==2.2.2
+pandas>=2.2.3
 psycopg2-binary==2.9.9
 pyasn1==0.6.4
 pyasn1_modules==0.4.2
