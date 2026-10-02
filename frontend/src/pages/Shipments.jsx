@@ -12,7 +12,7 @@ const STATUS_CHOICES = [
   ['waiting_cargo_release', 'Waiting Cargo Release'],
   ['factory_unloading', 'Factory Unloading'],
   ['empty_container_returned', 'Empty Container Returned'],
-  ['OPERATION_FULLY_COMPLETED', 'Completed'],
+  ['operation_fully_completed', 'Fully Operation Completed'],
   ['cancelled', 'Cancelled'],
 ]
 
@@ -140,7 +140,10 @@ export default function Shipments() {
 
   const activeCount = Object.keys(active).length
   const activeLabels = {
-    status: (v) => `Status: ${v.replace(/_/g, ' ')}`,
+    status: (v) => {
+      const label = STATUS_CHOICES.find(([value]) => value === v)?.[1] || v.replace(/_/g, ' ')
+      return `Status: ${label}`
+    },
     search: (v) => `Search: "${v}"`,
     customer: (v) => `Customer: ${customers.find((c) => String(c.id) === v)?.company_name || v}`,
     driver: (v) => `Driver: ${drivers.find((d) => String(d.id) === v)?.full_name || v}`,
