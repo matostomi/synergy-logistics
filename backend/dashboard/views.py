@@ -65,7 +65,7 @@ class DashboardSummaryView(APIView):
 
         shipment_counts = {
             'total': total,
-            'completed': by_status.get(Shipment.Status.operation_fully_completed, 0),
+            'completed': by_status.get(Shipment.Status.OPERATION_FULLY_COMPLETED, 0),
             'in_transit': by_status.get(Shipment.Status.IN_TRANSIT, 0),
             'at_customs': by_status.get(Shipment.Status.AT_CUSTOMS, 0),
             'technical_issues': by_status.get(Shipment.Status.TECHNICAL_ISSUES, 0),
@@ -192,7 +192,7 @@ class AnalyticsView(APIView):
     def get(self, request):
         now = timezone.now()
         months_back = int(request.query_params.get('months', 12))
-        window_start = (now.replace(day=1) - timedelta(days=1)) .replace(day=1)
+        window_start = (now.replace(day=1) - timedelta(days=1)).replace(day=1)
         for _ in range(months_back - 1):
             window_start = (window_start - timedelta(days=1)).replace(day=1)
 
@@ -214,7 +214,6 @@ class AnalyticsView(APIView):
                 'label': cursor.strftime('%b %Y'),
                 'count': monthly_by_key.get(key, 0),
             })
-            # advance one month
             if cursor.month == 12:
                 cursor = cursor.replace(year=cursor.year + 1, month=1)
             else:
@@ -261,7 +260,7 @@ class AnalyticsView(APIView):
         # --- 6. Performance KPI dashboard ---
         from django.db.models import F
 
-        completed_qs = Shipment.objects.filter(status=Shipment.Status.DELIVERED)
+        completed_qs = Shipment.objects.filter(status=Shipment.Status.OPERATION_FULLY_COMPLETED)
         total = Shipment.objects.count()
         completed_count = completed_qs.count()
         # Only shipments with both dates recorded are measurable for on-time rate —
@@ -316,13 +315,13 @@ class DailyReportView(APIView):
         # estimated delivery date in the past that hasn't been completed/cancelled.
         delayed = Shipment.objects.filter(
             estimated_delivery__lt=now
-        ).exclude(status__in=[Shipment.Status.DELIVERED, Shipment.Status.CANCELLED]).count()
+        ).exclude(status__in=[Shipment.Status.OPERATION_FULLY_COMPLETED, Shipment.Status.CANCELLED]).count()
 
         data = {
             'generated_at': now,
             'report_date': now.date(),
             'total_shipments': total,
-            'completed': by_status.get(Shipment.Status.DELIVERED, 0),
+            'completed': by_status.get(Shipment.Status.OPERATION_FULLY_COMPLETED, 0),
             'in_transit': by_status.get(Shipment.Status.IN_TRANSIT, 0),
             'at_customs': by_status.get(Shipment.Status.AT_CUSTOMS, 0),
             'waiting_cargo_release': by_status.get(Shipment.Status.WAITING_CARGO_RELEASE, 0),
